@@ -1,0 +1,22 @@
+<link rel='stylesheet' href='/stylesheets/form.css' />
+<script src="https://kit.fontawesome.com/5f556a3f29.js" crossorigin="anonymous"></script>
+
+<form action="/articles" method="POST">
+<div class="article_title">
+<label class="label_title">Title</label> <input class="title_name" type="text" name="title">
+</div>
+
+<label class="label_title desc">Description</label>
+<div class="article_description">
+  <textarea rows="20" cols="100" name="description"></textarea>
+<!-- <input type="text" name="description"> -->
+</div>
+
+<div class="tags">
+<label class="label_title desc">Tags</label><input class="article_tags" type="text" name="tags">
+</div>
+
+<div>
+<input class="article_submit" type="submit" value="Submit">
+</div>
+</form>

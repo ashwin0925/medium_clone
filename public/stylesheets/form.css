@@ -1,0 +1,62 @@
+body{
+  background: #eeedede7;
+}
+
+.article_title{
+  margin: 40 20 20 40;
+}
+
+.label_title{
+  font-size: 28px;
+}
+
+.title_name{
+  text-align: center;
+  border: none;
+  padding: 7 100;
+  border-radius: 5px;
+  background: white;
+  outline: none;
+  font-size: 20px;
+  margin-left: 50px;
+  margin-bottom: 10px;
+  border: 1px solid orange;
+}
+
+.desc{
+  margin-left: 40px;
+  }
+
+.article_description{
+  margin-left:145px ;
+  margin-top: 20px;
+  margin-right: 384px;
+  border: 1px solid orange;
+}
+
+.tags{
+  margin-top: 30px;
+}
+.article_tags{
+  margin-left: 53px;
+  text-align: center;
+  border: none;
+  padding: 7 130;
+  border-radius: 25px;
+  outline: none;
+  font-size: 16px;
+  border: 1px solid orange;
+}
+
+.article_submit{
+  border-radius: 5px;
+  font-size: 16px;
+  color: white;
+  background:orange;
+  font-weight: bold;
+  border: none;
+  padding: 7 12;
+  margin-left: 40px;
+  margin-top: 30px;
+  outline: none;
+}
