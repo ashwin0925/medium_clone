@@ -4,6 +4,7 @@
   
   <div class="title">
   <%= article.title %>
+
 </div>
   
   <div class="description">
@@ -16,6 +17,8 @@
           <span class="article_tags"><%= e %></span>
         <%})%>
     </div>
+
+  
   
 
 <div class="likes">
@@ -30,11 +33,23 @@
 </div>
   </form>
 
-
   
   <% Comments.forEach(Comment => { %>
+   
     <div class="comment_content">
-    <span class="comment_para"> <%= Comment.content %>  </span> <a href="/articles/<%= article._id %>/<%= Comment._id %>/delete"><i class="far fa-trash-alt"></i></a> </div>
-  <% }) %>
+      <%= Comment.author.name %> <br>
+    <span class="comment_para"> <%= Comment.content %> </span>
+     
+ 
+    <% if(loggedUser && loggedUser.id == Comment.author._id) { %>
+      <a href="/articles/<%= article._id %>/<%= Comment._id %>/delete"><i class="far fa-trash-alt"></i></a> 
+      
+
+     <% } else { %>
+  
+      <% } %>
+     </div> 
+   
+    <% }) %>
 
   <a class="back" href="./"><i class="fas fa-arrow-left"></i></a>

@@ -24,6 +24,10 @@ var userSchema = new Schema({
     required: true,
     trim: true
   },
+  commentsId:{
+type: Schema.Types.ObjectId,
+ref:'Comment'
+  },
   
 }, {timestamps: true});
 

@@ -23,20 +23,21 @@
 
 <div class="grid-container">
   <%articles.forEach(article => { %>
-    <% if(loggedUser && loggedUser.id == article.author) { %>
+
+    <% if(loggedUser && loggedUser.id == article.author.id) { %>
     <div class="grid-item">
   <span> <a href="/articles/<%= article._id %>"><%= article.title %></a></span>
   <p> <a href="/articles/<%= article._id %>"><%= article.description.slice(0, 100) %></a></p>
   <span> <a href="/articles/<%= article._id %>/edit"><i class="far fa-edit"></i></a> </span>
   <span> <a href="/articles/<%= article._id %>/delete"><i class="far fa-trash-alt"></i></a></span>
-  <span><%= article.author %></span>
+  <span><%= article.author.name %></span>
   </div> 
 
   <% } else { %>
       <div class="grid-item">
     <span> <a href="/articles/<%= article._id %>"><%= article.title %></a></span>
     <p> <a href="/articles/<%= article._id %>"><%= article.description.slice(0, 100) %></a></p>
-    <span><%= article.author %></span>
+    <span><%= article.author.name %></span>
 </div>
 <% } %>
     <% }) %>

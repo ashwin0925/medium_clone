@@ -10,6 +10,10 @@ var commentSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref:"Article",
     required:true
+  },
+  author: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
   }
 }, {timestamps:true})
 
