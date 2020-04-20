@@ -1,46 +1,68 @@
-<link rel='stylesheet' href='/stylesheets/style.css' />
-<script src="https://kit.fontawesome.com/5f556a3f29.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/stylesheets/style.css" />
+<script
+  src="https://kit.fontawesome.com/5f556a3f29.js"
+  crossorigin="anonymous"
+></script>
 
 <% if(loggedUser) { %>
-  <h1><%=loggedUser.name %></h1>
-  <a href="/users/logout">Logout</a>
+<a class="article_login"
+  ><i class="far fa-user"></i>&nbsp;<%=loggedUser.name %></a
+>
+<a class="article_login" href="/users/logout"
+  ><i class="fas fa-sign-out-alt"></i>&nbsp;Logout</a
+>
 <% } else { %>
-  <a href="/users/login">Login</a>
-  <a href="/users/register">Register</a>
+<a class="article_login" href="/users/login"
+  ><i class="fas fa-sign-in-alt"></i>&nbsp;Login</a
+>
+<a class="article_login" href="/users/register"
+  ><i class="fas fa-user-plus"></i>&nbsp;Register</a
+>
 <% } %>
 
-
-<div class=" herosection">
+<div class="herosection">
   <h1 class="herosection_h1">Publish your passions, your way</h1>
-  <h4 class="herosection_h4"> Create a unique and beautiful article. It’s easy and free.</h4>
+  <h4 class="herosection_h4">
+    Create a unique and beautiful article. It’s easy and free.
+  </h4>
 </div>
 
-
-
 <div class="article_create">
-  <a class="article_anchor" href="/articles/create">Create Your Article</a>
+  <a class="article_anchor" href="/create">Create Your Article</a>
 </div>
 
 <div class="grid-container">
-  <%articles.forEach(article => { %>
-
-    <% if(loggedUser && loggedUser.id == article.author.id) { %>
-    <div class="grid-item">
-  <span> <a href="/articles/<%= article._id %>"><%= article.title %></a></span>
-  <p> <a href="/articles/<%= article._id %>"><%= article.description.slice(0, 100) %></a></p>
-  <span> <a href="/articles/<%= article._id %>/edit"><i class="far fa-edit"></i></a> </span>
-  <span> <a href="/articles/<%= article._id %>/delete"><i class="far fa-trash-alt"></i></a></span>
-  <span><%= article.author.name %></span>
-  </div> 
+  <%articles.forEach(article => { %> <% if(loggedUser && loggedUser.id ==
+  article.author.id) { %>
+  <div class="grid-item">
+    <span>
+      <a class="article_heading" href="/<%= article._id %>"
+        ><%= article.title %></a
+      ></span
+    >
+    <p>
+      <a href="/<%= article._id %>"><%= article.description.slice(0, 100) %></a>
+    </p>
+    <span>
+      <a href="/<%= article._id %>/edit"><i class="far fa-edit"></i></a>
+    </span>
+    <span>
+      <a href="/<%= article._id %>/delete"><i class="far fa-trash-alt"></i></a
+    ></span>
+    <span class="article_author">-<%= article.author.name %></span>
+  </div>
 
   <% } else { %>
-      <div class="grid-item">
-    <span> <a href="/articles/<%= article._id %>"><%= article.title %></a></span>
-    <p> <a href="/articles/<%= article._id %>"><%= article.description.slice(0, 100) %></a></p>
-    <span><%= article.author.name %></span>
-</div>
-<% } %>
-    <% }) %>
-
-
+  <div class="grid-item">
+    <span>
+      <a class="article_heading" href="/<%= article._id %>"
+        ><%= article.title %></a
+      ></span
+    >
+    <p>
+      <a href="/<%= article._id %>"><%= article.description.slice(0, 100) %></a>
+    </p>
+    <span class="article_author">-<%= article.author.name %></span>
+  </div>
+  <% } %> <% }) %>
 </div>

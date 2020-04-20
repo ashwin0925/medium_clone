@@ -1,10 +1,25 @@
+<link rel="stylesheet" href="/stylesheets/login.css" />
+
 <% if (msg) { %>
-  <p><%= msg %></p>
-  <% } %>
-
-
+<p><%= msg %></p>
+<% } %>
+<h1 class="login_header">Login</h1>
 <form action="/users/login" method="post">
-  <input type="email" name="email" placeholder="Enter Email">
-  <input type="password" name="password" placeholder="Enter Password">
-  <input type="submit" value="Login">
-  </form>
+  <div class="login_form">
+    <input
+      class="login_email"
+      type="email"
+      name="email"
+      placeholder="Enter Email"
+    />
+    <div>
+      <input
+        class="login_email"
+        type="password"
+        name="password"
+        placeholder="Enter Password"
+      />
+    </div>
+    <input class="login_submit" type="submit" value="Login" />
+  </div>
+</form>

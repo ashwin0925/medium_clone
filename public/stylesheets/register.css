@@ -1,0 +1,38 @@
+.register_form {
+  text-align: center;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.register_header {
+  text-align: center;
+  justify-content: center;
+  font-size: 40px;
+  margin-top: 20px;
+}
+
+.register_email {
+  border: none;
+  border-radius: 5px;
+  background: white;
+  outline: none;
+  font-size: 18px;
+  border: 1px solid orange;
+  width: 400px;
+  height: 40px;
+  margin-bottom: 20px;
+  padding-left: 10px;
+}
+
+.register_submit {
+  border-radius: 5px;
+  font-size: 16px;
+  color: white;
+  background: orange;
+  font-weight: bold;
+  border: none;
+  padding: 7 12;
+  /* margin-left: 40px; */
+  /* margin-top: 30px; */
+  outline: none;
+}

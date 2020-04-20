@@ -10,17 +10,19 @@ var MongoStore = require('connect-mongo')(session);
 var middleware = require("./modules/middlewares")
 
 var indexRouter = require('./routes/index');
-var articlesRouter = require('./routes/articles');
+// var articlesRouter = require('./routes/articles');
 var usersRouter = require('./routes/users');
 
 // database
 
-mongoose.connect('mongodb://localhost/article',
-{ useNewUrlParser: true,
-  useUnifiedTopology: true },
- (err) => {
-  console.log('connected', err ? false : true);
-})
+mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost/article',
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  },
+  (err) => {
+    console.log('connected', err ? false : true);
+  })
 
 var app = express();
 
@@ -36,10 +38,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use(session({
-  secret:"secret string",
-  saveUnitialized:false,
-  resave:true, 
-  store: new MongoStore({mongooseConnection: mongoose.connection})
+  secret: "secret string",
+  saveUnitialized: false,
+  resave: true,
+  store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
 
 app.use(flash());
@@ -49,16 +51,16 @@ app.use(middleware.loggedUserInfo)
 // routes
 
 app.use('/', indexRouter);
-app.use('/articles', articlesRouter);
+// app.use('/articles', articlesRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

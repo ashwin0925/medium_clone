@@ -1,55 +1,57 @@
-<link rel='stylesheet' href='/stylesheets/view.css' />
-<script src="https://kit.fontawesome.com/5f556a3f29.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/stylesheets/view.css" />
+<script
+  src="https://kit.fontawesome.com/5f556a3f29.js"
+  crossorigin="anonymous"
+></script>
 
-  
-  <div class="title">
+<div class="title">
   <%= article.title %>
-
 </div>
-  
-  <div class="description">
-    <p><%= article.description %> </p>
-  </div>
-  
-    <div class="tags">
-      <a><i class="fas fa-tags"></i></a>  
-        <% article.tags.join().split(" ").forEach(e => { %>
-          <span class="article_tags"><%= e %></span>
-        <%})%>
-    </div>
 
-  
-  
+<div class="description">
+  <p><%= article.description %></p>
+</div>
+
+<div class="tags">
+  <a><i class="fas fa-tags"></i></a>
+  <% article.tags.join().split(" ").forEach(e => { %>
+  <span class="article_tags"><%= e %></span>
+  <%})%>
+</div>
 
 <div class="likes">
-  <a href="/articles/<%= article._id %>/likes"><i class="far fa-thumbs-up"></i> <span class="article_likes"><%= article.likes %></span></a>
+  <a href="/<%= article._id %>/likes"
+    ><i class="far fa-thumbs-up"></i>
+    <span class="article_likes"><%= article.likes %></span></a
+  >
 </div>
 
+<form action="/<%= article.id %>/Comments" method="POST">
+  <div class="comment">
+    <input
+      class="article_comment"
+      type="text"
+      name="content"
+      placeholder="Write a Comment"
+    />
+    <input class="comment_submit" type="submit" value="Comment" />
+  </div>
+</form>
 
-  <form action="/articles/<%= article.id %>/Comments" method="POST">
-    <div class="comment">
-  <input class="article_comment" type="text" name="content" placeholder="Write a Comment">
-  <input class="comment_submit" type="submit" value="Comment">
+<% Comments.forEach(Comment => { %>
+
+<div class="comment_content">
+  <%= Comment.author.name %> <br />
+  <span class="comment_para"> <%= Comment.content %> </span>
+
+  <% if(loggedUser && loggedUser.id == Comment.author._id) { %>
+  <a href="/<%= article._id %>/<%= Comment._id %>/delete"
+    ><i class="far fa-trash-alt"></i
+  ></a>
+
+  <% } else { %> <% } %>
 </div>
-  </form>
 
-  
-  <% Comments.forEach(Comment => { %>
-   
-    <div class="comment_content">
-      <%= Comment.author.name %> <br>
-    <span class="comment_para"> <%= Comment.content %> </span>
-     
- 
-    <% if(loggedUser && loggedUser.id == Comment.author._id) { %>
-      <a href="/articles/<%= article._id %>/<%= Comment._id %>/delete"><i class="far fa-trash-alt"></i></a> 
-      
+<% }) %>
 
-     <% } else { %>
-  
-      <% } %>
-     </div> 
-   
-    <% }) %>
-
-  <a class="back" href="./"><i class="fas fa-arrow-left"></i></a>
+<a class="back" href="./"><i class="fas fa-arrow-left"></i></a>
