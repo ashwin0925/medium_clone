@@ -81,9 +81,15 @@ a {
   border-radius: 25px;
   background: rgb(50, 68, 231);
   color: white;
+  margin-right: 7px;
 }
 
 .back {
   font-size: 21px;
   margin: 20px;
+}
+
+i {
+  margin-right: 7px;
+  margin-bottom: 7px;
 }

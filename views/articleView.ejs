@@ -41,7 +41,9 @@
 <% Comments.forEach(Comment => { %>
 
 <div class="comment_content">
-  <%= Comment.author.name %> <br />
+  <div>
+    <a href=""><i class="far fa-user"></i><%= Comment.author.name %> </a>
+  </div>
   <span class="comment_para"> <%= Comment.content %> </span>
 
   <% if(loggedUser && loggedUser.id == Comment.author._id) { %>
