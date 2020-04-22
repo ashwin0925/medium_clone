@@ -1,9 +1,7 @@
-##Medium Clone using Node
+# Medium Clone using Node
 
 fork the repo
 
-#npm install
+## npm install
 
-install dependencies check in package.json
-
-#npm run start
+## npm run start
